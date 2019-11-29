@@ -17,7 +17,8 @@ public class QuestionAChoixMultipleTest {
         ArrayList listRep = new ArrayList<Integer>();
         listRep.add(1);
         listRep.add(3);
-        question = new QuestionAChoixMultiple("énoncé", listRep);
+        int nbIndices = 3;
+        question = new QuestionAChoixMultiple("énoncé", listRep, nbIndices);
     }
 
     @Test
@@ -35,13 +36,13 @@ public class QuestionAChoixMultipleTest {
         // and: on demande le score de l'étudiant
         float score = question.getScoreForIndice(indice);
         // then: le score obtenu est de 50
-        assertEquals(score, 50f, 0.01f);
+        assertEquals(50f, score,0.01f);
 
         // when: quand l'étudiant donne l'indice d'une mauvaise réponse
         int indiceM = 2;
         // and: on demande le score de l'étudiant
         float scoreM = question.getScoreForIndice(indiceM);
         // then: le score obtenu est de 0
-        assertEquals(scoreM, 0f, 0.01f);
+        assertEquals(0f, scoreM, 0.01f);
     }
 }
